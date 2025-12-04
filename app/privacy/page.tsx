@@ -1,198 +1,108 @@
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, Lock, Eye, Database, UserCheck } from "lucide-react"
-import Link from "next/link"
+"use client";
 
-export const metadata = {
-  title: "سياسة الخصوصية | Privacy Policy",
-  description: "سياسة الخصوصية وحماية البيانات الشخصية",
-}
+import { motion } from "framer-motion";
 
-export default function PrivacyPage() {
+export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-neutral-900 to-black text-white" dir="rtl">
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-
-        {/* Back Button */}
-        <Link href="/">
-          <Button
-            variant="ghost"
-            className="mb-8 gap-2 text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 transition"
-          >
-            <ArrowRight className="w-4 h-4 text-yellow-400" />
-            العودة للصفحة الرئيسية
-          </Button>
-        </Link>
-
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-yellow-500/10 shadow-[0_0_18px_rgba(255,215,0,0.35)] mb-4">
-            <Shield className="w-10 h-10 text-yellow-400" />
-          </div>
-
-          <h1 className="text-4xl font-bold mb-4 tracking-wide text-yellow-300">
-            سياسة الخصوصية
-          </h1>
-
-          <p className="text-gray-400 text-lg">
-            آخر تحديث: {new Date().toLocaleDateString("ar-EG", { 
-              year: "numeric", 
-              month: "long", 
-              day: "numeric" 
-            })}
-          </p>
+    <div className="min-h-screen flex items-center justify-center bg-[radial-gradient(circle_at_top,#6f27ff,#3b1c77,#1b103f)] py-10 px-4" dir="rtl">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="max-w-4xl w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-10 relative overflow-hidden"
+      >
+        {/* خلفيات التأثيرات */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-20 -left-20 w-60 h-60 bg-purple-500/30 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-0 right-0 w-72 h-72 bg-pink-500/20 blur-[100px] rounded-full"></div>
         </div>
 
-        {/* Main Card */}
-        <Card className="p-8 mb-8 bg-black/40 border border-yellow-500/20 rounded-2xl shadow-xl backdrop-blur-md">
-          <div className="prose prose-invert prose-lg max-w-none" dir="rtl">
+        <motion.h1
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-4xl font-extrabold text-white drop-shadow mb-6 text-center"
+        >
+          سياسة الخصوصية
+        </motion.h1>
 
-            {/* INTRO */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4 flex items-center gap-3">
-                <Eye className="w-6 h-6 text-yellow-400" />
-                مقدمة
-              </h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-gray-200 text-center mb-8"
+        >
+          آخر تحديث: 01 / 02 / 2025
+        </motion.p>
 
-              <p className="text-gray-300 leading-relaxed">
-                نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية وفق أعلى المعايير.
-              </p>
-            </section>
+        <div className="space-y-10 relative z-10 text-gray-100">
+          <Section
+            title="المقدمة"
+            content={`توضح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك الشخصية عند استخدامك لخدمة الروابط الحيوية (BioLinks). من خلال الوصول إلى منصتنا أو استخدامها، فإنك توافق على جمع واستخدام المعلومات وفقًا لما هو موضح في هذه السياسة.`}
+          />
 
-            {/* DATA WE COLLECT */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4 flex items-center gap-3">
-                <Database className="w-6 h-6 text-yellow-400" />
-                المعلومات التي نجمعها
-              </h2>
+          <Section
+            title="المعلومات التي نقوم بجمعها"
+            content={`قد نقوم بجمع عدة أنواع من البيانات، تشمل:
+• البيانات الشخصية مثل الاسم والبريد الإلكتروني وروابط التواصل.
+• بيانات الاستخدام مثل نوع الجهاز والمتصفح وطريقة التفاعل مع المنصة.
+• ملفات تعريف الارتباط (Cookies) وتقنيات التتبع لتحسين تجربة المستخدم.`}
+          />
 
-              <div className="space-y-6">
+          <Section
+            title="كيفية استخدام المعلومات"
+            content={`قد نستخدم بياناتك للأغراض التالية:
+• تشغيل منصة BioLinks وتحسين أدائها.
+• تخصيص تجربة المستخدم.
+• تعزيز الأمان والتحليلات وتحسين الأداء.
+• التواصل وتقديم الدعم الفني.`}
+          />
 
-                <div>
-                  <h3 className="text-xl font-semibold text-yellow-200 mb-2">معلومات الحساب</h3>
-                  <ul className="list-disc list-inside text-gray-400 space-y-2 mr-4">
-                    <li>الاسم الكامل</li>
-                    <li>البريد الإلكتروني</li>
-                    <li>رقم الهاتف (اختياري)</li>
-                    <li>الصورة الشخصية (اختياري)</li>
-                  </ul>
-                </div>
+          <Section
+            title="أمان البيانات"
+            content={`نلتزم بحماية بياناتك باستخدام تقنيات التشفير والخوادم الآمنة وآليات المراقبة. ورغم جهودنا للحفاظ على أعلى مستويات الأمان، لا توجد وسيلة نقل بيانات آمنة بنسبة 100٪.`}
+          />
 
-                <div>
-                  <h3 className="text-xl font-semibold text-yellow-200 mb-2">معلومات الاستخدام</h3>
-                  <ul className="list-disc list-inside text-gray-400 space-y-2 mr-4">
-                    <li>عنوان IP</li>
-                    <li>نوع الجهاز والمتصفح</li>
-                    <li>الصفحات التي تمت زيارتها</li>
-                    <li>سلوك التصفح</li>
-                  </ul>
-                </div>
+          <Section
+            title="الخدمات الخارجية"
+            content={`قد نستخدم خدمات جهة خارجية مثل أدوات التحليل أو بوابات الدفع. تعمل هذه الخدمات بشكل مستقل وقد تجمع المعلومات وفق سياسات الخصوصية الخاصة بها.`}
+          />
 
-                <div>
-                  <h3 className="text-xl font-semibold text-yellow-200 mb-2">
-                    ملفات تعريف الارتباط (Cookies)
-                  </h3>
-                  <p className="text-gray-300">
-                    نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتخصيص المحتوى.
-                  </p>
-                </div>
+          <Section
+            title="حقوقك"
+            content={`قد تكون لك حقوق معينة حسب موقعك الجغرافي، مثل:
+• الوصول إلى بياناتك
+• طلب حذف البيانات
+• تحديث المعلومات غير الدقيقة
+• إلغاء الاشتراك في التتبع أو التحليلات`}
+          />
 
-              </div>
-            </section>
+          <Section
+            title="التعديلات على هذه السياسة"
+            content={`قد نقوم بتحديث سياسة الخصوصية من وقت لآخر. سيتم نشر أي تغييرات على هذه الصفحة مع تحديث تاريخ المراجعة.`}
+          />
 
-            {/* HOW WE USE DATA */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4 flex items-center gap-3">
-                <UserCheck className="w-6 h-6 text-yellow-400" />
-                كيف نستخدم معلوماتك
-              </h2>
-
-              <ul className="list-disc list-inside text-gray-400 space-y-2 mr-4">
-                <li>تحسين خدماتنا</li>
-                <li>التواصل معك</li>
-                <li>إرسال عروض أو تحديثات – بموافقتك</li>
-                <li>تحليل الأداء</li>
-                <li>الامتثال للقوانين</li>
-              </ul>
-            </section>
-
-            {/* SECURITY */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4 flex items-center gap-3">
-                <Lock className="w-6 h-6 text-yellow-400" />
-                حماية البيانات
-              </h2>
-
-              <p className="text-gray-300 leading-relaxed mb-4">
-                نقوم بتنفيذ أفضل الممارسات الأمنية لحماية المعلومات:
-              </p>
-
-              <ul className="list-disc list-inside text-gray-400 space-y-2 mr-4">
-                <li>تشفير SSL/TLS</li>
-                <li>تشفير البيانات الحساسة</li>
-                <li>المصادقة الثنائية (2FA)</li>
-                <li>أنظمة مراقبة أمنية</li>
-                <li>نسخ احتياطية دورية</li>
-              </ul>
-            </section>
-
-            {/* DATA SHARING */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4">مشاركة البيانات</h2>
-
-              <p className="text-gray-300 leading-relaxed mb-4">
-                لا نقوم ببيع بياناتك. قد نشاركها فقط في الحالات التالية:
-              </p>
-
-              <ul className="list-disc list-inside text-gray-400 space-y-2 mr-4">
-                <li>مقدمو الخدمات الموثوق بهم</li>
-                <li>الامتثال للقانون</li>
-                <li>حماية حقوقنا</li>
-              </ul>
-            </section>
-
-            {/* USER RIGHTS */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4">حقوقك</h2>
-
-              <ul className="list-disc list-inside text-gray-400 space-y-2 mr-4">
-                <li>الوصول إلى بياناتك</li>
-                <li>تحديث البيانات</li>
-                <li>حذف البيانات</li>
-                <li>الاعتراض على المعالجة</li>
-                <li>سحب الموافقة</li>
-              </ul>
-            </section>
-
-            {/* CHILDREN */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4">الأطفال</h2>
-              <p className="text-gray-300 leading-relaxed">
-                لا نجمع بيانات الأطفال دون سن 13 عامًا عمدًا.
-              </p>
-            </section>
-
-            {/* POLICY CHANGES */}
-            <section className="mb-10">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4">التغييرات على هذه السياسة</h2>
-              <p className="text-gray-300 leading-relaxed">
-                قد نقوم بتحديث سياسة الخصوصية وسنبلغك بأي تغييرات مهمة.
-              </p>
-            </section>
-
-            {/* CONTACT */}
-            <section>
-              <h2 className="text-2xl font-bold text-yellow-300 mb-4">اتصل بنا</h2>
-
-              <div className="mt-4 p-5 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
-                <p className="font-semibold text-yellow-300">البريد الإلكتروني: privacy@bceudr.com</p>
-                <p className="font-semibold text-yellow-300">الهاتف: +966-22-444-999</p>
-              </div>
-            </section>
-
-          </div>
-        </Card>
-      </div>
+          <Section
+            title="اتصل بنا"
+            content={`إذا كانت لديك أي أسئلة حول سياسة الخصوصية، يمكنك التواصل معنا عبر البريد التالي:
+support@biolinks.com`}
+          />
+        </div>
+      </motion.div>
     </div>
-  )
+  );
+}
+
+function Section({ title, content }: { title: string; content: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="bg-white/5 p-6 rounded-2xl border border-white/10 shadow-xl hover:bg-white/10 transition-all duration-300 backdrop-blur-md"
+    >
+      <h2 className="text-2xl font-bold text-purple-300 mb-3">{title}</h2>
+      <p className="text-gray-200 whitespace-pre-line leading-relaxed">{content}</p>
+    </motion.div>
+  );
 }
