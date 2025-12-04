@@ -28,7 +28,6 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
 <head>
-<meta name="google-site-verification" content="mOQ1IUPXozVZ4xC9dscfJOvtyzbW76af0uWCsHEmdog" />
 </head>
       <body className={`${cairo.className} font-sans antialiased`}>
         {children}
@@ -36,7 +35,7 @@ export default function RootLayout({
         {/* Google Tag Script */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17776840689"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-XXX"
         />
 
         <Script id="google-analytics">
@@ -44,7 +43,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-17776840689');
+            gtag('config', 'AW-XXX');
           `}
         </Script>
       </body>
